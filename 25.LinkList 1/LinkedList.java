@@ -12,7 +12,7 @@ public class LinkedList{
 
         }
     }
-    public static Node head;
+    public Node head;
     public static Node tail;
     public static int size;
 
@@ -143,7 +143,7 @@ public class LinkedList{
         if(head.data == key){
             return 0;
         }
-        int idx = helper(head.next, key);
+        int idx = helper(head.next, key);   
         if(idx == -1){
             return -1;
         }
@@ -214,5 +214,12 @@ public class LinkedList{
         // System.out.println(ll.itrSearch(9));
         // System.out.println(ll.size);
     
+    }
+
+    public char[] cheakPalindrome() {
+        return null;
+    }
+
+    public void zigZag() {
     }
 }
