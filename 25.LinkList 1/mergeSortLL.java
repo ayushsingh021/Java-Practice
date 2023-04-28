@@ -34,18 +34,18 @@ public class mergeSortLL {
         tail = newNode;
         
     }
-    // public void print(){
-    //     if(head == null){
-    //         System.out.println("LL is empty");
-    //         return;
-    //     }
-    //     Node temp = head;
-    //     while(temp != null){
-    //         System.out.println(temp.data + "->" +" ");
-    //         temp = temp.next;
-    //     }
+    public void print(){
+        if(head == null){
+            System.out.println("LL is empty");
+            return;
+        }
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data + "->" +" ");
+            temp = temp.next;
+        }
 
-    // }
+    }
 
     public static Node head;
     public static Node tail;    
@@ -141,16 +141,19 @@ public class mergeSortLL {
 
     }
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        mergeSortLL ll = new mergeSortLL();
         ll.addLast(1);
-        ll.addLast(2);
         ll.addLast(3);
+        
+        ll.addLast(2);
+
         ll.addLast(4);
         ll.addLast(5);
         //1 - 2 -3 - 4  -5
         ll.print();
-        ll.zigZag();
-        // ll.head = ll.mergeSort(ll.head);
+        System.out.println();
+        // ll.zigZag();
+        ll.head = ll.mergeSort(ll.head);
         ll.print();
     }
 }
