@@ -34,6 +34,34 @@ public class TopViewOfTree {
                 this.hd =hd;
             }
         }
+
+        public List<Integer> rightSideView(Node root) {
+            List<Integer> ans = new ArrayList<>();
+    
+            Queue<Node> q = new LinkedList<>();
+    
+            q.add(root);
+            q.add(null);
+    
+            while(!q.isEmpty()){
+                Node curr = q.remove();
+                if(curr == null){
+                     if(q.isEmpty()){
+                     break;
+                    }
+                    else{
+                    q.add(null);
+                    }
+    
+                }else{
+                    ans.add(curr.data);
+                    if(curr.right != null){
+                        q.add(curr.right);
+                    }
+                }
+            }
+            return ans;
+        }
         public static void topView(Node root){
             //level order traversal
 
@@ -83,6 +111,14 @@ public class TopViewOfTree {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.binaryTreeBuilder(nodes);
+        System.out.println("Topview");
         tree.topView(root);
+        
+        //right side view
+        List<Integer> newArr = tree.rightSideView(root);
+        System.out.println("RightSide view");
+        while(!newArr.isEmpty()){
+            System.out.print(newArr.remove(0) + " ");
+        }
     }
 }
