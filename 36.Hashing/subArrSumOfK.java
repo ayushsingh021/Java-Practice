@@ -16,6 +16,6 @@ public class subArrSumOfK {
             }
             hm.put(sum , hm.getOrDefault(sum, 0)+1);
         }
-        System.out.println("The no of subaarays having sum k " + ans);
+        System.out.println("The no of subaarays having sum k : " + ans);
     }
 }
