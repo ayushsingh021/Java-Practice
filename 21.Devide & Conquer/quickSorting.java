@@ -33,6 +33,7 @@ public class quickSorting {
                 arr[i] = temp;
             }
         }
+        i++;
         int temp = pivot;
         arr[ei] = arr[i];    //pivot = arr[i];(galat hai cuz pivot to variable hai)
         arr[i] = temp;
