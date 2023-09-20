@@ -12,7 +12,7 @@ public class unBoundedKnapsack {
             dp[0][i] = 0;
         }
 
-        //tabulation
+        //tabulation -- Unbounded knapsack
         for(int i = 1; i< n+1 ; i++){
             for(int j =1 ;j < W+1 ;j++){
                 int Wt = wt[i-1]; //idx of val in 1 lesser than 2d dp arr
