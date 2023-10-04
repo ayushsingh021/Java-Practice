@@ -38,3 +38,29 @@ class Solution {
         return sb.reverse().toString();
     }
 }
+
+
+///Method 2
+class Solution
+{
+    String colName (long n)
+    {
+       String str = "";
+       ArrayList<Long> ans = new ArrayList<>();
+    //   System.out.print('T'-64);
+      while(n > 0 ){
+          long dig = n%26;
+          if(dig !=0  ){
+              ans.add(dig);
+          }else{
+             ans.add((long)26);
+             n= n-1;
+          }
+           n = n/26;
+      }
+      for(int i = ans.size() - 1; i >= 0 ; i--){
+          str = str + (char)( 64 + ans.get(i));
+      }
+       return str;
+    }
+}
