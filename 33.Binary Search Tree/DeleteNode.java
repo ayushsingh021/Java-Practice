@@ -26,6 +26,8 @@ public class DeleteNode {
   
     
     public static TreeNode deleteNode(TreeNode root, int key) {
+       //inorderSuccesor -- right ka sabse chota baccha(leftmost)
+        //inorderPredessor -- left ka sabse bada baccha (rightmost)
         if(root == null){
             return root;
         }
@@ -60,7 +62,7 @@ public class DeleteNode {
     return root;
     }
     public static TreeNode inOrderSuccessorFind(TreeNode root){
-        if(root.left != null){
+        while(root.left != null){
             root = root.left;
         }
         return root;
