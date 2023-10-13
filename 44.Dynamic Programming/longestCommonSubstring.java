@@ -29,10 +29,13 @@ public class longestCommonSubstring {
 
     }
     public static void main(String[] args) {
-        String s1 = "ABCDE";
-        String s2 = "ABGCE";
-        int m = 5;
-        int n = 5;
+        // String s1 = "ABCDE";
+        // String s2 = "ABGCE";
+
+        String s1 = "1100011000";
+        String s2 = "0101001010";
+        int m = 10;
+        int n = 10;
         // longestCommonSubstrTab(s1, s2, n, m);
         System.out.println(longestCommonSubstrTab(s1, s2, n, m));
     }
