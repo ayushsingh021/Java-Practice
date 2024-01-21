@@ -1,5 +1,11 @@
 import java.util.*;
 
+/////////////******IMP********/////////////////
+// nextGreater --- arr[s.peek()] <= arr[i]
+//nextSmaller --- arr[s.peek()] >= arr[i]
+// left -- left se iterate karo i = 0 -- > n;
+//right -- right se iterate karo i = n-1 --> 0 
+
 public class nextGreaterElemArr {
 
     public static void nextGreaterElem(int arr[] , int nextGE[]){
