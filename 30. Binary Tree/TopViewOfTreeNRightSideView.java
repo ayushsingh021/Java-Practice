@@ -1,5 +1,5 @@
 import java.util.*;
-public class TopViewOfTree {
+public class TopViewOfTreeNRightSideView {
     static class Node{
         int data;
         Node left;
