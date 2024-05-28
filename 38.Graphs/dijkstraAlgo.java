@@ -59,18 +59,20 @@ public class dijkstraAlgo {
             //loop
             while(!pq.isEmpty()){
                 Pair curr = pq.remove(); // automaticlly the min path node will come out for pq
-                
+                int pathDist = curr.path;//curr
                 if(!vis[curr.n]){
                     vis[curr.n] = true;
+
                     //neighbours
                     for(int j = 0 ; j < graph[curr.n].size() ; j++){
                         Edge e = graph[curr.n].get(j);
-                        int u = e.src;
+                        //neigh
                         int v = e.dest;
                         int wt = e.wt;
                         //Dijkstra Logic
-                        if(dist[u] + wt < dist[v]){ //updated dist of src to v
-                            dist[v] = dist[u] + wt;
+                        // curr + neighWt < neighDist  its win win then updata
+                        if(pathDist+ wt < dist[v]){ //updated dist of src to v
+                            dist[v] = pathDist + wt;
                             pq.add(new Pair(v, dist[v]));
                         }
 

@@ -30,36 +30,55 @@ public class primsMSTAlgo {
         graph[3].add(new Edge(3, 2, 30));
     }
 
-    static class Pair implements Comparable<Pair>{
-        int v;
-        int cost;
-        public Pair(int v , int c){
-            this.v= v;
-            this.cost = c;
-        }
-        @Override
-        public int compareTo(Pair p2){
-            return this.cost - p2.cost ; //ascending
-        }
+    static class Value implements Comparable<Value>{
+        int sr; //src node
+        int pathWt; //wt
+        int parent; //parent of src node
 
+        public Value(int src, int pathWt , int parent){
+            this.sr = src ;
+            this.pathWt = pathWt;
+            this.parent = parent;
+        }
+        
+        public int compareTo(Value p2){
+            return this.pathWt - p2.pathWt; //ascending
+        }
+        
     }
     public static void primsMST(ArrayList <Edge> graph[]){
-        boolean vis[] = new  boolean[graph.length];
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
-        pq.add(new Pair(0, 0));
+       
+        // boolean vis[] = new  boolean[graph.length];
+        boolean isMST[] = new boolean[graph.length] ;// is the node is taken in MST or not
+        int V = graph.length;
+        PriorityQueue<Value> pq = new PriorityQueue<>();
+        pq.add(new Value(0, 0, -1));
+        // pq.add(new Value(0, 0 , -1));
+        int parArr[] = new int[V];
+        Arrays.fill(parArr, -1);
         int finalCost = 0 ; // mst cost or total min wight ,, we can also create an AL for storing edges
 
         while(!pq.isEmpty()){
-            Pair curr = pq.remove();
-            if(!vis[curr.v]){
-                vis[curr.v] = true;
-                finalCost += curr.cost;
+            Value curr = pq.remove();
+            int node = curr.sr;
+            int wt = curr.pathWt;
+            int par = curr.parent;
+        
+            if(!isMST[node]){
+                isMST[node] = true;
+                finalCost += wt;
+                parArr[node] = par;
 
-                for(int i = 0 ; i < graph[curr.v].size() ; i++){
-                    Edge e = graph[curr.v].get(i);
-                    pq.add(new Pair(e.dest, e.wt));
+                //neigh
+                for(int i = 0 ; i < graph[node].size() ; i++){
+                    Edge e = graph[node].get(i);
+                    pq.add(new Value(e.dest, e.wt , node));
                 }
             }
+        }
+
+        for(int i = 0 ; i < V; i++){
+            System.out.println(parArr[i]+ " ");
         }
 
         System.out.println("Final min cost of MST is :" + finalCost);
