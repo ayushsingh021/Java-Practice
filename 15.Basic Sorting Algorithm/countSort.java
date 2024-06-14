@@ -17,7 +17,7 @@ public class countSort{
         for(int i = 0;i<count.length; i++){
         while(count[i]>0){
             arr[j]=i;
-            i++;
+            j++;
             count[i]--;
         }    
         }
